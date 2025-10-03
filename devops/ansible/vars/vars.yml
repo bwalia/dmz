@@ -1,0 +1,5 @@
+---
+hdopenresty_api_user_email: "{{ vault_hdopenresty_api_user_email }}"
+hdopenresty_api_user_passwd: "{{ vault_hdopenresty_api_user_passwd }}"
+hdopenresty_api_target_hash: "{{ vault_hdopenresty_api_target_hash }}"
+hdopenresty_api_target_serial: "{{ vault_hdopenresty_api_target_serial }}"

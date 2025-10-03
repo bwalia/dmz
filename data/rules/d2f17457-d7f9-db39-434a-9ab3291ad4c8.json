@@ -1,0 +1,1 @@
+{"match":{"rules":{"path":"\/testrule1","client_ip_key":"equals","jwt_token_validation":"equals","path_key":"starts_with","country_key":"equals"},"response":{"message":"PGgxPlJ1bGUgdGVzdCAxPC9oMT4K","allow":false,"code":403}},"id":"d2f17457-d7f9-db39-434a-9ab3291ad4c8","created_at":1687933884,"version":1,"priority":1,"name":"Rule 1 Redis Local Dev env"}

@@ -1,0 +1,21 @@
+[ubuntu]
+
+10.72.131.1
+10.72.131.2
+10.72.131.3
+10.72.128.47
+10.72.128.42
+10.72.130.228
+10.72.131.3
+10.72.128.46
+10.72.128.55
+10.72.128.5
+10.72.130.163
+
+
+[ubuntu:vars]
+
+ansible_ssh_private_key_file=~/.ssh/id_rsa_hd_jenkins
+ansible_user=sciensano
+ansible_ssh_common_args='-o StrictHostKeyChecking=no'
+python3_interpreter=/usr/bin/python3

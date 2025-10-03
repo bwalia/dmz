@@ -1,0 +1,86 @@
+# Default values for node-app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: bwalia/node-app
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+secure_env_file: AgDMK9xWZgZ1dR9gg5aDUwbNy5tAcx0VyE7XZ+FdaiumhnOo3RulDBohSd8mRFw50mycxKCBKMv9bez5QfZLgPdEBAySL69y8DFbgZ1g7ENHXxSKSZcprDNddaZ2thscXIb+Odsrmtvlh7MskpA0dTsolJxIWpNB3RdA+6da0RI/54Gsmlqn7RjVygkaior9muAmbvZeQo0oB9Xjofp0arnHZZ30DftCE3z9gfzTpnWCCO2F8dtiWtTditIbVzkzg7F/lLz2bipHdY4c/c3Dyaf0N3aSMnMp2Nshw6wv/fPt8g/j2cUaNGneKrrD2oGuTNxWHgpAHzOupioEtYxk7fDmarLp3a+R/ODrgTSr/eEg/jH0vPdCEcKMfbMSTbZsRqJP48nZ/ibhDo/36f79W+oGS9i61OaJSA808M6LFIhR2HbAvr8mQr0/AYpD2RQjGLJsn1hM+pVJT2GJlffD3w5zesWB80Gp0uGJ3c2Iq4qCXgE+cwy9WMBv5Yovxf0Ujj3fCw0jBG4R1T07Wcn1APACSz/u7duISUaGVlQJy6JLFM1EAxymroQwMkE8wCuOcJeQ3O5cqgkwlQXfAJrRZsSJRZqhaICzxRAbYImcGTuujXhET7jy8zyRH4kgdyPFhq1UeN+V5aW/nctk+6IvqartaTxF6kNwYW+Xry+A6sS3PB6cBIfnRXBy07+wWiUshjF4OGA6IV0h+eLGb3Lmh0laaXYHkvHFLKVZETMlIieXPghuIgsAJJYegg6XOXtjiOXKMb5KinNqpJ4+p8RPTAxxXlT3NBJWwvROBprG1aYX7k0=
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 3009
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: sandbox-app.kubes.healthdata.be
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          serviceName: node-app
+          servicePort: 3009
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - nodeapp.kubes.sciensano.be
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

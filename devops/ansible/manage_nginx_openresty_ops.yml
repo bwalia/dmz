@@ -1,0 +1,11 @@
+- hosts: nginx_cluster 
+  become: yes
+  vars_files:
+    - ./vars/vault.yml
+    - ./vars/vars.yml
+  roles:
+    - ubuntu 
+    - luarocks 
+    - powerdns
+  vars:
+    nginx_port: 80

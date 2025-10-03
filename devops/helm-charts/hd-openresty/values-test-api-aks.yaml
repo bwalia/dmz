@@ -1,0 +1,119 @@
+# Default values for dmz.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+app:
+  name: dmz-api
+  version: 0.1.0
+  description: A Helm chart for Kubernetes
+  keywords:
+    - helm
+    - chart
+    - kubernetes
+  namespace: test
+  dns_resolver: "10.0.0.10"
+  dns_resolver_ns_primary: "10.0.0.10"
+  dns_resolver_ns_secondary: "10.72.128.1"
+  api_url: "http://dmz-api-svc-test.test.svc.cluster.local:8080/api"
+  redis_host: "redis-service.test.svc.cluster.local"
+  target_env: "test"
+  target_type: "api"
+
+persistentStorage: ""
+storageType: ""
+
+secure_env_file: "AgAlFXhMs1VHr3u9cw/LUk2dunCy0hxXLl5jYH/Aev/qV7YR5MyODTKngsK1RhxoydStYrd2gCj9BHSYAiJybr0E7OseHlu7zBuykzYV5IA294eWc9LNPgU3Ssi6nSqPS7jHlhLOsds5Jr4XOdjuCreRRSHoDwStpVqOaNw4LaRRG9W5fOIWuYXb1K6+Pr0AwSrBRahipzJAsaCIOaH3ulbWcxGvCpO4SdekofxXhYXsaDE8Uekwq2ASZWj6SkSheq1dvq9qMsuOczABad4Uawh89AVW5FNCZCX8fKPE+DZj0haRhMGiMzjD4vEspF0EGQ8aeoiMKOt/yEsD03ZrRrSzsNzpdu2mqHkccbN3QE56u37yrdz5CVsZIDEtSRvEGGn0JwwuuvyeearrerZd4E3ndAlMoUjfWcyr6VkZm00I6D8Xy3TC3LP59IOGLhvw85wdgaLc1FoUhL7RKGQxfNpyh5Hl+2DVPwaYCP+/hHvdtWtLgL6qa9fjSyilNi1IqhkJAnggfWqG8ydhMqkHVZpZAXnAuKAu7SMAR9hFtJ2ImuMB5Ti7A/4aDuaWZSUcB5pw0pDFdY1zjGwNFDlAlkm8FsmfGPhrsrV7pXKT0TlTHVE4A99AxS0gZuvU31usW9d+aLbEdozwCI1Q0kIQ/uwsLkn6w0eoIFjytDGhFwAToJmkYjUGRtLQL0DzmgXoBcz9FbiXhQvwj5LkQOz6ASpfpCZvWltYb0eCLqFy+w8MBpUVoBKgeNDFWMdFMD0t6Xvlpi+y5HNPVH0EZAI/pkvo9MhnNh4KjJ+Z9Sb1a6bS+RC3PUqxkIdI87prE8mBzqOeUWG7rhDPsqDUZZQYdetOp4cjtskVeF2Ja7E5Of7WBpdSVlagGyAwG3Elb3ZmFPbnyOJxg6slexa9faJtgX+f3f21ymeM5wet90/IfHRdQxOH1mKBiTfD0azs6B4YeVE55mcdk4w3eYL7xdoweCarPnfULUmnJe+V/LV0WwiGYZjuGe5WmAzXUOcNjKaHlgoHmWj63obfVfmdyeIqL5RkfjzDLClc2uozAF2Pzqn4xu5TwGTrgf4u1vZZIHD8HNX+xXNT63dHBb/aEEpwxJKXB8kGLyCpRRwiAcMWhzSZ1H3owCSrJzPNSMkR8w6lUvRHvxW6hFSixArGouR5GPFeq3ZCG7CD0OoJC//KMWbWbu27tftveXbiF/4r8FHV52L1cipRgiaMFV4EL8b39klkbXtiZNm/3V8z1IJWqdJLirO3JQcLogr54k0kKe7LACI6WjNWrFV3NGvEA1zLez42ahdb/vermTZTYd8cHvh6a8MTEAs="
+regcred_nexus_healthdata: "AgBQccVaczkzkgRRKFFYnXNbiVL9MludmyLKVYMsjHWnXolKfLaEzhW1wW9ul12bFs7aJn8X2ZM2B9a+aotR7LiklrSobWHktlACpdPfr+WESGovHns0BiESA1RadX0vh58k6xfUoPh2SBbvN3gsUHP2kt3QzQMoxDpbBl6g0Mr6hABerfpwajJ0y26V4KvwIq0P96zvGlGhQha/kTrQRF9Rc+OeEL79DhNgoazRnF94PbSMm5DT98/ZQAKHVfFrRyfvzlpHwtOpkROHdK02BZL65z570oItQwd/QjkxAMfJSTvh6JZeGC0EaqVstkBejMkNScK55GbwORxtB5sucIjFNxSd+7yK3ih/i0ra9jYkXe+MP1bI+RGREz+hMBMpwgvvBGDFZL3DO3RsZo+X7/4iNtkJCVTkAOPnoImnK5lDi2vFCUoe32kIAPBST5SBicxXUFnPGOKVQJDyiM5ijAH6QRAnQg7EAI+ukmbSav95ZZZwAVD3MLk7JkThLBN13/+wRbP1BmiMZb4/fW4bZ/1sSZs0FAx47kyOh7Ef2SERbI30s3ycFLK6mQpcxP+jg9iJYJV4yHe/F+SYql49ZVl07vaKj9eP5r++5ZHHI7ORclE/m4+Sg6QW3tDZaG/Vpl3RRvBF1QudVaDZGaXQA+fTvd+0E3c+AlEvJyVVJm49NuSgpDCYEElAn2c3UmgHnNNV2Fsuthdbnk4Y4MRscDkQZFcqmrg14GhMsLbbI9Y26sq75EnZW3/8qQyaE2hzESEye1Efu02NP7OvtF8BpoMUzlmisAU6G6Qa//myzIDIE2DEMqwlpDekz3IklcI6mPDWp29LDOmdr8lIRwk/HrjLfqo77My69BwsNhyad5gBZOoGCBOe6gKj/y9gW7kzKUD6Lw6N0h5Wv1Tc4J8Ymh7j2jmbrUvTmRCs5GrzUdy7jNwAEOMqvYAOMJpyl/wWkjPqlMOP533VpRSdabK6pywwM13SwJEpDDoHpmMvtIz5kYLdfg3L"
+
+tlscrt: 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
+tlskey: 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
+
+image:
+  repository: 192.168.1.193:30082/dmz
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets:
+- name: nexus-images-access-api
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 8080
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: dmz.dev.kubes.healthdata.be
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          serviceName: dmz-api-svc
+          servicePort: 8080
+    - host: api-test.healthdata.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          serviceName: dmz-api-svc
+          servicePort: 8080 
+
+  tls:
+   - secretName: ingress-tls-cert-key-test
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

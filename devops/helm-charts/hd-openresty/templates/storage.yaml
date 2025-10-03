@@ -1,0 +1,79 @@
+{{- if eq .Values.persistentStorageV2 "enabled" }}
+{{- if eq .Values.storageTypeV2 "azure" }}
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: disk.csi.azure.com
+  name: pv-dmz
+  labels:
+    app: hdopenresty
+spec:
+  capacity:
+    storage: 32Gi
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: managed-csi
+  csi:
+    driver: disk.csi.azure.com
+    volumeHandle: {{ .Values.azureDiskVolumeHandle }}
+    volumeAttributes:
+      fsType: ext4
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dmz-{{ .Values.app.target_env }}-{{ .Values.app.target_type }}-pvc
+  namespace: {{ .Values.app.target_env }}
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 32Gi
+  volumeName: pv-dmz
+  storageClassName: managed-csi
+  selector:
+    matchLabels:
+      app: hdopenresty
+      
+{{- end }}
+{{- end }}
+
+
+{{- if eq .Values.persistentStorage "enabled-not-in-use-see-below" }}
+{{- if eq .Values.storageType "azure-old" }}
+######################################################
+##Storage: If using Azure use Azure Volumes
+#####################################################
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: dmz-{{ .Values.app.target_env }}-{{ .Values.app.target_type }}
+  annotations:
+    "helm.sh/resource-policy": keep
+provisioner: disk.csi.azure.com
+parameters:
+  skuName: Premium_LRS
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dmz-{{ .Values.app.target_env }}-{{ .Values.app.target_type }}-pvc
+  annotations:
+    "helm.sh/resource-policy": keep
+spec:
+  accessModes:
+  - ReadWriteOnce
+  storageClassName: dmz-{{ .Values.app.target_env }}-{{ .Values.app.target_type }}
+  resources:
+    requests:
+      storage: 5Gi
+{{- end }}
+{{- end }}

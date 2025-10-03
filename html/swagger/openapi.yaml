@@ -1,0 +1,592 @@
+openapi: 3.0.0
+info:
+  title: OPSAPI Gateway Consumer Documentation
+  description: API endpoints reference for performing CRUD operations for Servers, Security Rules and HTTP Routes
+  version: 1.0.0
+tags:
+  - name: Servers  
+    description: Create and Manage servers aka HTTP hosts
+  - name: Rules
+    description: Create and Manage host specific Security Rules and HTTP Routes  
+paths:
+  /api/rules:
+    get:
+      tags:
+        - Rules
+      summary: Retrieve a list of all the security rules and the routes. 
+      operationId: getRules
+      parameters:
+        - name: params
+          in: query
+          description: Search keyword
+          required: false
+          schema:
+            type: object
+            properties:
+              pagination:
+                type: object
+                default: {page: 1, perPage: 10}
+              sort:
+                type: object
+                default: {field: id, order: ASC}
+              filter:
+                type: object
+                default: {profile_id: prod}
+      responses:
+        '200':
+          description: Successfully retrieved a list of all HTTP Security rules and or the routes
+      security:
+        - bearerAuth: []          
+          
+    post:
+      tags:
+        - Rules
+      summary: Create a new rule
+      operationId: createRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rules'
+      responses:
+        '201':
+          description: Successfully created a new Security Rule and HTTP Route
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RuleResponse'
+      security:
+        - bearerAuth: []                
+                
+  /api/rules/{id}:
+    get:
+      tags:
+        - Rules
+      summary: Retrieve HTTP Route or Security Rule by ID
+      operationId: getRuleById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the rule to retrieve
+          required: true
+          schema:
+            type: string
+        - name: envprofile
+          in: query
+          description: Profile Name
+          required: false
+          schema:
+            type: string
+            default: test
+      responses:
+         '200':
+            description: Returned information about a specific rule
+         '404':
+            description: Not found
+      security:
+        - bearerAuth: []            
+            
+    put:
+      tags:
+        - Rules
+      summary: Update a security rule or HTTP Route by ID
+      operationId: updateRuleById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the rule to update
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Rules'
+      responses:
+        '200':
+          description: Successfully updated rule
+        '404':
+          description: Not found
+      security:
+        - bearerAuth: []          
+          
+          
+    delete:
+      tags:
+        - Rules
+      summary: Delete a security rule or HTTP Route by ID
+      operationId: deleteRuleById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the rule to delete
+          required: true
+          schema:
+            type: string
+        - name: envProfile
+          in: query
+          description: Profile Name
+          required: false
+          schema:
+            type: string
+            default: test
+      responses:
+        '200':
+          description: Successfully deleted a rule
+      security:
+        - bearerAuth: []
+            
+  /api/servers:
+    get:
+      tags:
+        - Servers
+      summary: Retrieve a list of all the HTTP server hosts. 
+      operationId: getServers
+      parameters:
+        - name: params
+          in: query
+          description: Search keyword
+          required: false
+          schema:
+            type: object
+            properties:
+              pagination:
+                type: object
+                default: {page: 1, perPage: 10}
+              sort:
+                type: object
+                default: {field: id, order: ASC}
+              filter:
+                type: object
+                default: {profile_id: prod}
+      responses:
+        '200':
+          description: Successfully retrieved a list of all the HTTP servers
+      security:
+        - bearerAuth: []
+
+    post:
+      tags:
+        - Servers
+      summary: Create a new server
+      operationId: createServer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Servers'
+      responses:
+        '201':
+          description: Successfully created a new server
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServerResponse'
+      security:
+        - bearerAuth: []                
+                
+  /api/servers/{id}:
+    get:
+      tags:
+        - Servers
+      summary: Retrieve a HTTP server by ID
+      operationId: getServerById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the server to retrieve
+          required: true
+          schema:
+            type: string
+        - name: envprofile
+          in: query
+          description: Profile Name
+          required: false
+          schema:
+            type: string
+            default: test
+      responses:
+         '200':
+            description: Returned information about a specific server
+         '404':
+            description: Item not found
+      security:
+        - bearerAuth: []            
+          
+    put:
+      tags:
+        - Servers
+      summary: Update a HTTP server by ID
+      operationId: updateItemById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the server to update
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Servers'
+      responses:
+        '200':
+          description: OK
+        '404':
+          description: Item not found
+      security:
+        - bearerAuth: []          
+          
+          
+    delete:
+      tags:
+        - Servers
+      summary: Delete a HTTP server by ID
+      operationId: deleteServerById
+      parameters:
+        - name: id
+          in: path
+          description: ID of the item to delete
+          required: true
+          schema:
+            type: string
+        - name: envProfile
+          in: query
+          description: Profile Name
+          required: false
+          schema:
+            type: string
+            default: test
+      responses:
+        '200':
+          description: Successfully deleted a server
+      security:
+        - bearerAuth: []
+
+  /api/profiles:
+    get:
+      tags:
+        - Profiles
+      summary: Retrieve a list of all the security rules and the routes. 
+      operationId: getProfiles
+      parameters:
+        - name: params
+          in: query
+          description: Search keyword
+          required: false
+          schema:
+            type: object
+            properties:
+              pagination:
+                type: object
+                default: {page: 1, perPage: 10}
+              sort:
+                type: object
+                default: {field: id, order: ASC}
+              filter:
+                type: object
+                default: {profile_id: prod}
+      responses:
+        '200':
+          description: Successfully retrieved a list of all HTTP Security rules and or the routes
+      security:
+        - bearerAuth: []          
+          
+    post:
+      tags:
+        - Profiles
+      summary: Create a new profile
+      operationId: createProfile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  default: prod
+      responses:
+        '201':
+          description: Successfully created a new Security Rule and HTTP Route
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: number
+                    default: 200
+                  message:
+                    type: string
+                    default: Success
+      security:
+        - bearerAuth: []                
+  
+  /api/user/login:
+    post:
+        tags:
+        - Login
+        summary: Login to server
+        requestBody:
+          required: true
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email:
+                    type: string
+                    default: email@mail.com
+                  password:
+                    type: string
+                    default: abc123
+        responses:
+          '201':
+            description: Login Successfull
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    status:
+                      type: number
+                      default: 200
+                    message:
+                      type: string
+                      default: Success
+
+  /password/reset:
+    post:
+      tags:
+        - PasswordReset
+      summary: Password Reset API
+      operationId: resetPassword
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                oldPassword:
+                  type: string
+                  default: abc123
+                newPassword:
+                  type: string
+                  default: abc123
+      responses:
+        '201':
+          description: Successfully resets the password
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: number
+                    default: 200
+                  message:
+                    type: string
+                    default: Success
+      security:
+        - bearerAuth: []     
+
+
+  /api/openresty_status:
+    get:
+      tags:
+      - Openresty
+      summary: Check the status of openresty (openresty -t)
+      responses:
+        '200':
+          description: nginx the configuration file /usr/local/openresty/nginx/conf/nginx.conf syntax is ok
+      security:
+        - bearerAuth: []   
+          
+  /api/openresty_logs:
+    get:
+      tags:
+      - Openresty
+      summary: Get all the logs of openresty
+      responses:
+        '200':
+          description: signal process started     
+      security:
+        - bearerAuth: []
+
+components:
+  securitySchemes:
+    bearerAuth:            # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT 
+  schemas:
+    Servers:
+      type: object
+      properties:
+        server_name:
+          type: string
+          default: localhost
+        profile_id:
+          type: string
+          default: test
+        root:
+          type: string
+          default: /var/www/html
+        rules:
+          type: string
+          default: f8107018-2979-4c16-cd61-ab8a8b3303b1 (Rule uuid)
+        index:
+          type: string
+          default: index.html
+        locations:
+          type: object
+          default: {
+            "location_path": "/api",
+            "location_opts": ["allow", "try_files"],
+            "location_vals": { "allow": "127.0.0.1", "try_files": "html" }
+          }
+        access_log:
+          type: string
+          default: logs/access.log
+        error_log:
+          type: string
+          default: logs/error.log
+        match_cases:
+          type: object
+          default: [
+            { "statement": "a0b5fe52-2fdc-cf47-2b82-f3c69ee39ae2 (Rule uuid)", "condition": "and"}
+          ]
+        listens:
+          type: object
+          default: [{ "listen": "8080" }]
+        created_at:
+          type: number
+          default: 1687334596
+        custom_block:
+          type: object
+          default: [{ "additional_block": "include /tmp/resolver.conf;" }]
+        config:
+          type: string
+          default: "server {\n        listen 8080;  # Listen on port (HTTP)\n        server_name localhost;  # Your domain name\n        root /var/www/html;  # Document root directory\n        index index.html;  # Default index files\n        access_log /logs/access.log;  # Access log file location\n        error_log /logs/error.log;  # Error log file location\n\n        location /api {\n                  allow 127.0.0.1\ntry_files html\n                  }\n        include resolver.conf;\n    }\n    "
+        config_status:
+          type: boolean
+          default: false
+    ServerResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          default: ef9d2897-92ea-9a96-ce7d-268dd0cb36b7
+        server_name:
+          type: string
+          default: localhost
+        profile_id:
+          type: string
+          default: test
+        root:
+          type: string
+          default: /var/www/html
+        rules:
+          type: string
+          default: f8107018-2979-4c16-cd61-ab8a8b3303b1 (Rule uuid)
+        index:
+          type: string
+          default: index.html
+        locations:
+          type: object
+          default: {
+            "location_path": "/api",
+            "location_opts": ["allow", "try_files"],
+            "location_vals": { "allow": "127.0.0.1", "try_files": "html" }
+          }
+        access_log:
+          type: string
+          default: logs/access.log
+        error_log:
+          type: string
+          default: logs/error.log
+        match_cases:
+          type: object
+          default: [
+            { "statement": "a0b5fe52-2fdc-cf47-2b82-f3c69ee39ae2 (Rule uuid)", "condition": "and"}
+          ]
+        listens:
+          type: object
+          default: [{ "listen": "8080" }]
+        created_at:
+          type: number
+          default: 1687334596
+        custom_block:
+          type: object
+          default: [{ "additional_block": "include /tmp/resolver.conf;" }]
+        config:
+          type: string
+          default: "server {\n        listen 8080;  # Listen on port (HTTP)\n        server_name localhost;  # Your domain name\n        root /var/www/html;  # Document root directory\n        index index.html;  # Default index files\n        access_log /logs/access.log;  # Access log file location\n        error_log /logs/error.log;  # Error log file location\n\n        location /api {\n                  allow 127.0.0.1\ntry_files html\n                  }\n        include resolver.conf;\n    }\n    "
+        config_status:
+          type: boolean
+          default: false
+    Rules:
+      type: object
+      properties:
+        name:
+          type: string
+          default: Rule_Name
+        profile_id:
+          type: string
+          default: test
+        version:
+          type: number
+          default: 1
+        priority:
+          type: number
+          default: 1
+        match:
+          type: object
+          default:
+              {"rules":{"path_key":"starts_with","path":"/api","country_key":"equals","country":"BE","client_ip_key":"equals","client_ip":" 172.18.0.1","jwt_token_validation":"equals","jwt_token_validation_value":"Authorization","jwt_token_validation_key":"<JWT_TOKEN>"}}
+        response:  
+          type: object
+          default:
+            {"allow":false,"code":403,"message":"SGVsbG8gd29ybGQh"}
+  
+          
+    RuleResponse:
+      type: object
+      properties:
+        name: 
+          type: string
+          default: Rule_name
+        profile_id:
+          type: string
+          default: test
+        id:
+          type: string
+          default: ef9d2897-92ea-9a96-ce7d-268dd0cb36b7
+        priority:
+          type: number
+          default: 1
+        version:
+          type: number
+          default: 1
+        created_at:
+          type: number
+          default: 1687429983
+        match:
+          type: object
+          default:
+              {"rules":{"path_key":"starts_with","path":"/api","country_key":"equals","country":"BE","client_ip_key":"equals","client_ip":" 172.18.0.1","jwt_token_validation":"equals","jwt_token_validation_value":"Authorization","jwt_token_validation_key":"<JWT_TOKEN>"}}
+        response:  
+          type: object
+          default:
+            {"allow":false,"code":403,"message":"SGVsbG8gd29ybGQh"}
+  
+       

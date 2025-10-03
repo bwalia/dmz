@@ -1,0 +1,7 @@
+---
+- name: Run a command on the Ansible host
+  hosts: all
+  tasks:
+    - name: Execute a local command
+      ansible.builtin.command:
+        cmd: echo "This is run on the Ansible host"

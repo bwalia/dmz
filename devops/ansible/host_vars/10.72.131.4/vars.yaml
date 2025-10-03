@@ -1,0 +1,10 @@
+settings_file_path_encrypted: "devops/ansible/vault/settings_10.72.131.4.json"
+env_file_path_encrypted: "devops/ansible/vault/.env_10.72.131.4"
+settings_template_file_path: "dummies/.settings_10.72.131.4.json"
+env_template_file_path: "dummies/.env_10.72.131.4"
+nginx_user_password: "!!REDACTED!!" # This is the password for the user www-data but must be encrypted using Ansible Vault
+nginx_web_ui_enabled: ""
+nginx_rest_api_server_enabled: ""
+nginx_data_sync_enabled: "yes"
+host_lan_ip: "10.72.131.4"
+node_max_old_space_size: 1024

@@ -1,0 +1,35 @@
+#!/bin/bash
+
+  mkdir -p "/var/run/nginx/" \
+    && chmod +x "/var/run/nginx/" \
+    && chown www-data:root "/var/run/nginx/" \
+    && chmod 755 -R "/var/run/nginx/"
+
+mkdir -p "/tmp/nginx/" \
+    && chmod +x "/tmp/nginx/" \
+    && chown www-data:root "/tmp/nginx/" \
+    && chmod 777 -R "/tmp/nginx/"
+
+touch /var/run/nginx/nginx-reboot.log
+chmod 777 /var/run/nginx/nginx-reboot.log
+
+mkdir -p /opt/nginx/conf.d \
+    && chmod 775 /opt/nginx/conf.d \
+    && chown www-data:root /opt/nginx/conf.d
+
+chmod 775 -R /usr/local/openresty/nginx/logs/ \
+    && chown -R www-data:root /usr/local/openresty/nginx/logs/
+
+chmod 775 -R /usr/local/openresty/nginx/conf/ \
+    && chown -R www-data:root /usr/local/openresty/nginx/conf/
+
+chmod -R 777 /opt/nginx/data/ \
+    && chown -R www-data:root /opt/nginx/data/
+
+mkdir -p /opt/nginx/prod_cache/
+chmod 775 -R /opt/nginx/prod_cache/
+chown www-data:root -R /opt/nginx/prod_cache/
+
+if [ -f "/tmp/.env" ]; then
+  cp /tmp/.env /usr/local/openresty/nginx/html/openresty-admin/.env
+fi

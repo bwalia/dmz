@@ -1,0 +1,19 @@
+ubuntu_packages:
+  - libpcre3
+  - libpcre3-dev
+  - zlib1g
+  - zlib1g-dev
+  - libssl-dev
+  - rsync
+  - cron
+  - git
+  - curl
+  - wget
+  - unzip
+  - zip
+  - jq
+  - net-tools
+  - iputils-ping
+  - dnsutils
+  - htop
+  

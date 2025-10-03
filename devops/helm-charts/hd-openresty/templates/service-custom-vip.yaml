@@ -1,0 +1,29 @@
+
+{{- if .Values.app.custom_lb_svc_enabled -}}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.app.name }}-svc-{{ .Values.app.target_env }}-custom-vip
+  namespace: "{{ .Values.app.namespace }}"
+  labels:
+    {{- include "dmz.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+{{ if .Values.app.enable_https }}
+    - protocol: TCP
+      port: 443
+      targetPort: 443
+      name: https-custom-443
+{{ end }}
+{{ if .Values.app.enable_http }}
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: https-custom-80
+{{ end }}
+  selector:
+    {{- include "dmz.selectorLabels" . | nindent 4 }}
+  externalIPs:
+    - {{ .Values.app.custom_lb_svc_ip_addr }}
+{{- end }}

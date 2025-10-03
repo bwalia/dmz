@@ -1,0 +1,1 @@
+{"servers":["host:localhost"],"created_at":1688665913,"priority":2,"id":"c829e5fd-6442-8e97-0b3a-3625da65be87","name":"Test DP Site 1000","match":{"rules":{"client_ip_key":"equals","jwt_token_validation":"equals","path":"\/","country_key":"equals","path_key":"starts_with"},"response":{"message":"PGgxPkZvcmJpZGRlbiBUZXN0IFBhdGg8L2gxPgo=","allow":false,"code":403}},"version":1}

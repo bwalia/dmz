@@ -1,0 +1,31 @@
+---
+- name: Run a command on the Ansible host
+  hosts: [ubuntu]
+  tasks:
+    - name: ping -c 3 s3.healthdata.be
+      ansible.builtin.command:
+        cmd: ping -c 3 s3.healthdata.be
+
+    - name: nc -v s3.healthdata.be 80
+      ansible.builtin.command:
+        cmd: nc -v s3.healthdata.be 80
+
+    - name: nc -v s3.healthdata.be 443
+      ansible.builtin.command:
+        cmd: nc -v s3.healthdata.be 443
+
+    # - name: Check http connection to hdopenresty.healthdata.be
+    #   ansible.builtin.command:
+    #     cmd: curl -IL http://hdopenresty.healthdata.be
+
+    # - name: Check https connection to s3.healthdata.be
+    #   ansible.builtin.command:
+    #     cmd: curl -IL http://s3.healthdata.be
+
+    # - name: Check https connection to hdopenresty.healthdata.be
+    #   ansible.builtin.command:
+    #     cmd: curl -IL https://hdopenresty.healthdata.be
+
+    # - name: Check https connection to s3.healthdata.be
+    #   ansible.builtin.command:
+    #     cmd: curl -IL https://s3.healthdata.be

@@ -1,0 +1,34 @@
+
+{{- if .Values.ingress.enabled -}}
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+  labels:
+    app.kubernetes.io/component: dmz
+  name: dmz-ingress
+  namespace: {{ .Values.app.target_env }}
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: dmz.dev.kubes.healthdata.be
+    http:
+      paths:
+      - backend:
+          service:
+            name: {{ .serviceName }}
+            port:
+              number: {{ .servicePort }}
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - dmz.dev.kubes.healthdata.be
+    secretName: dmz-api-ingress-tls-prod
+status:
+  loadBalancer:
+    ingress:
+    - ip: {{ .Values.custom_lb_ingress_ip_addr }}
+
+{{- end }}

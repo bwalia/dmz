@@ -1,0 +1,122 @@
+# Default values for dmz-router.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+app:
+  name: dmz-front
+  version: 0.1.0
+  description: A Helm chart for Kubernetes
+  keywords:
+    - helm
+    - chart
+    - kubernetes
+  namespace: test
+  dns_resolver: "10.0.0.10"
+  dns_resolver_ns_primary: "10.0.0.10"
+  dns_resolver_ns_secondary: "10.0.0.10"
+  api_url: "http://dmz-api-svc-test.test.svc.cluster.local:8080/api"
+  redis_host: "redis-service.test.svc.cluster.local"
+  target_env: "test"
+  target_type: "front"
+
+persistentStorage: ""
+storageType: ""
+
+secure_env_file: "AgADJdtvslER0RBNaswrPMoXGzOpeyxNJPgqdNfCJdlCLGSR7/B9iqNLhGm5b34fGJ1Vf4H5KB9uT4/RA3Yir+wDJIpxF7tA/uBzxYDbbZAg97Q/Zv4CcjadSJxXies6De/4oZPfJr9sbOntsTFM/xJlmh5TZCIVzL1asbthaidyvrMrVL5/uanKfmXllT1TxKEgGcAxEsdk3E2/Bo0r0o/btJS7518WNObosIIRNQdPR3bn7B+RTFGn+xviw0dOIrRG3oCzJjjZKRDdwgX6y5wVAE67JdccVuy6MW6oD5seJuWz3MTduauOPT6hf1nIG5LBfWiohRtVTLaKEdx0fgRObkbaKq4Atyw2/B9v2nLoXOseA35L0yO6YjZlfmMHxAoKxyUBZn0F/oZWLY7QaWWxIwb8qYjboqzH0t3bCZL47VWXVXKB+YGrbpwKFet3bDVS7qHjj3a4eCtWYyUsbMwgmyyboKc+lj4124V7kRVp1DdVQDPDdVO797VXG8o45iKyuaoeiR4TfYX6VjTzrpQc3z0Ble2O0uMY95j2l7h8eduRam8gGzpEedQzJDLBFzmL0dl6vfGn0Z7T/aHkcJY6YQ50u2Y3mS/pYUvuDXxh7rudPgD+tGvXf3hPmc5tLlJlZYVljjJrpL2SFsAf/1ho2jPrtTv5IJW5CMrp1pAO6uJWZls62kaNIL1y42IoLzsvU+5Jcp63rYd9WDN1wPDd/6WQaMLhcTCj67D+G3I8IS7m99tXTqx80Y6iliFSHwenFjP4QF7VcCRQGWKQmz0fyNLgf933Er2xXLMUDBJOhu/OmpP5tC5zhdn+BGIgRJvTANHZFSh9yi8TeblktwfbfcAzTdDlNm5gG3RrbotGU9dr5kps+4xoShv5HartYbpXvFD6QKbSQMY4iCJ9KHVlKGR+sbtr8sA10O4aUqTgzK3F7QW+x+xtJpAbaGP8W2eeGPoG3LcflNiRSt1HUdMrBSCp0lpltfrm4QsNxk5cy4YbQKjymcxFswHn+NIkaZTOXw=="
+regcred_nexus_healthdata: "AgCAlllQ2NZorptZpPhL5kiuTs/PiB48PNl4asAL2TGKCEVMTvaA23FWdOOAfD/aY2L65TVZg4Vdnr9mzrSoyvo7C7rh7Lk+WK+axngbeWf3De9N/yTz0dvfF3umKqxyq4nzBG+VfKIEzZosRM2dmUx8WD+lxaEgXpUKFZvro2BzLIW1OYXShztnTIgg0+/1IiZHNABGJ208HEMlZTY99rvbGWQGa4P6QBDAVyjeQ32qrguwD+OtilsXQxEKhFxd/es65Y0ub6QDSXYsKzgsAvXz+EnxpghON3Gc1B9cWcNTwUUONNDSswuM1s5sKZoVsrjPaX88MAaauelAyzDoBpmdn12dPt7qLqrXgu0hSIKedCVOD8ldGTyGyaLF07w+bxHuWWTY1/3fNle3teoqJtsCo5os25YKzmzIs1mFrkPVTKLN6hS1Xr4QSLSQcK3HJtZ4AiMKF48jAiOtYVhfNSR74dq4EuoRfoqhkRc/yaQVKfr68FwMuBF6+JMwMvWe1i8IAQGKE/kXw13VlEaeTHDD4oEN6GH8xWirxIFL6lVdjxE3t2I17bGQPxyHH/QB0OmwTnEsdfZyxWj3HOg/Cgjfo/5w3Nxdjq9z6ngKfOXXe65zcbkQlcPLM7Pf5+4AOCyaop2lkXR2jUKtNPvNiZaa1n5MUmVR2npi4LfJn9rum0dtC/JL9/71fDnfMJvoBcqay8fUzl3A/ugfSsnqXzmZDMmhHqFicUdCCXaTuu9z2NGe2Cayrvg4ilWcfSTZJhv1pErkfCLHcZLxkvx2LVIBUengHMMRCVxrIMp8wdFTYiVpuWzJTqsRvmKGD++hmI2bn7GaJ5pdKAd30J7UhFShA44P1sS0q7nkdvBC4M+i66oT6Ox4T1C50aktn2ECrb7ejHvrlkuELFoJoRN+WnXrOYXmBVHeN2DiJ/W1PpLbWe3DoRMtX1kPvEBG2K+O9qMeGTMKE6eIJdnQT10dY6LaEtV+1XwScbSXVrH0ZlHxtREAlpMmWKH43EDTByW2/4XB9iZSQIOJhQt1oF4I4Mgan4YGyLaOugzVV6T7wUK+/f8uItc6blmY5veNHUkBmYUGhiEGdR20BJgbxOToruuKFjFe5+fHFeotoAEtVwQ8teRRkjmdbuLloguovM4OGsP+BJUU37FtUMJUGo9+R6Q12MjQsytDsDpU5bTQAPV0+AOb5/Ak4dzFKsTmRIM71Xrm+sv2DjFuEIiDzFrV+spu3bo5rGGMNdcrhf2TIZZgpw=="
+
+image:
+  repository: 192.168.1.193:30082/dmz
+  pullPolicy: Always
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+imagePullSecrets:
+- name: nexus-images-access-front
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: "nginx"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: test-front.kubes.healthdata.be
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          serviceName: dmz-front-svc-test
+          servicePort: 80
+    - host: sandbox-apigw.kubes.healthdata.be
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          serviceName: dmz-front-svc-test
+          servicePort: 80
+    - host: front-test.healthdata.local
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
+          serviceName: dmz-front-svc-test
+          servicePort: 80
+
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
