@@ -13,10 +13,10 @@ echo "CYPRESS_LOGIN_EMAIL=$USERNAME" >> /tmp/.env_cypress
 echo "CYPRESS_LOGIN_PASSWORD=$PASSWD" >> /tmp/.env_cypress
 echo "CYPRESS_TARGET_ENV=$TARGET_ENV" >> /tmp/.env_cypress
 if [ "$TARGET_ENV" = "test" ]; then
-    BASE_URL="https://dmz.dev.kubes.healthdata.be"
-    FRONTEND_URL="https://test-front.kubes.healthdata.be"
+    BASE_URL="https://dmz.dev.kubes.dmz.it.com"
+    FRONTEND_URL="https://test-front.kubes.dmz.it.com"
     NODEAPP_ORIGIN_HOST="172.177.0.10:3009"
-    SERVER_NAME="test-front.kubes.healthdata.be"
+    SERVER_NAME="test-front.kubes.dmz.it.com"
     TARGET_PLATFORM="docker"
 fi
 if [ "$TARGET_ENV" = "local" ]; then

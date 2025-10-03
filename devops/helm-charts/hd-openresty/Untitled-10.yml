@@ -1,5 +1,5 @@
-VITE_API_URL=http://dmz.dev.kubes.healthdata.be/api
-VITE_FRONT_URL=https://test-front.kubes.healthdata.be
+VITE_API_URL=http://dmz.dev.kubes.dmz.it.com/api
+VITE_FRONT_URL=https://test-front.kubes.dmz.it.com
 VITE_NGINX_CONFIG_DIR=/opt/nginx/
 VITE_APP_NAME=dmz
 VITE_APP_DISPLAY_NAME="DMZ (Test)"

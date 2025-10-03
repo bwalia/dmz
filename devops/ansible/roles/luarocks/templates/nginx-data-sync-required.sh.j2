@@ -95,7 +95,7 @@ if [ -f /tmp/nginx/nginx-data-sync-required ]; then
   # - HDOPENRESTY_TARGET_HASH: The hash of the target instance
   # - HDOPENRESTY_API_SERIAL_NO: The serial number of the target instance
 
-HDOPENRESTY_CONTROL_PLANE_API_URL="dmz.kubes.healthdata.be"
+HDOPENRESTY_CONTROL_PLANE_API_URL="dmz.kubes.dmz.it.com"
 
 TOKEN=$(curl -X POST https://${HDOPENRESTY_CONTROL_PLANE_API_URL}/api/user/login -H 'accept: application/json' -H 'Content-Type: application/json' -d "{\"email\": \"${HDOPENRESTY_API_USER_EMAIL}\",\"password\": \"${HDOPENRESTY_API_USER_PASSWD}\"}" | jq -r '.data.accessToken')
 

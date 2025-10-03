@@ -1,26 +1,26 @@
 DTAP DEFAULT DOMAINS PER git add ENV
 
 front.__target_environment_ref__.healthdata.local
-__target_environment_ref__-front.kubes.healthdata.be
+__target_environment_ref__-front.kubes.dmz.it.com
 
 prod ENV
 
-frontdoor.kubes.healthdata.be
-front.kubes.healthdata.be
-apigw.kubes.healthdata.be
+frontdoor.kubes.dmz.it.com
+front.kubes.dmz.it.com
+apigw.kubes.dmz.it.com
 
 
 acc ENV
 
-acc-frontdoor.kubes.healthdata.be
-acc-front.kubes.healthdata.be
-acc-apigw.kubes.healthdata.be
+acc-frontdoor.kubes.dmz.it.com
+acc-front.kubes.dmz.it.com
+acc-apigw.kubes.dmz.it.com
 
 
 test ENV
 
-test-front.kubes.healthdata.be
-test-front.kubes.healthdata.be
-dmz.dev.kubes.healthdata.be
+test-front.kubes.dmz.it.com
+test-front.kubes.dmz.it.com
+dmz.dev.kubes.dmz.it.com
 
 

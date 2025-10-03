@@ -2,7 +2,7 @@
 
 Welcome to DMZ the home of HD API Gateway and HD PoP.
 
-Note: This is technical documentation focusing on the technology and internal workings of the DMZ API Gateway. For Sciensano DMZ Business Documentation please refer to `https://docs.healthdata.be/documentation/dc-devops-internal/dmz`
+Note: This is technical documentation focusing on the technology and internal workings of the DMZ API Gateway. For Sciensano DMZ Business Documentation please refer to `https://docs.dmz.it.com/documentation/dc-devops-internal/dmz`
 
 What is HD API Gateway and HD PoP (Point of Presence)?
 
@@ -26,16 +26,16 @@ Dev / Testing is done on Balinder's laptop for now. Setup Dev environment on you
 
 Note: The API GW Acc env is Publically available but protected at layer 7 by network and IP level limited access to VPN network only.
 
-[API GW Acc env OPS API] https://dmz.dev.kubes.healthdata.be/
-[API GW Acc env FrontDoor] https://frontdoor-acc.kubes.healthdata.be/
+[API GW Acc env OPS API] https://dmz.dev.kubes.dmz.it.com/
+[API GW Acc env FrontDoor] https://frontdoor-acc.kubes.dmz.it.com/
 
 
 - Prod
 
 Note: The API GW Prod env is NOT Publically available & protected at layer 7 by network and IP level limited access to VPN network only as well as NetScaler level.
 
-[API GW Acc env OPS API] https://dmz.kubes.healthdata.be/
-[API GW Acc env FrontDoor] https://frontdoor-test.kubes.healthdata.be/
+[API GW Acc env OPS API] https://dmz.kubes.dmz.it.com/
+[API GW Acc env FrontDoor] https://frontdoor-test.kubes.dmz.it.com/
 
 
 ## A typical implementation of HD API Gateway and the HD PoP is shown in the illustration below.HD PoP stands for Point of Presence & it acts as a frontdoor traffic manager and it is build on top of the famous Nginx Openresty Framework. The complete working illustation can help you to understand the purpose of dmz.
@@ -157,7 +157,7 @@ and much more...
 
 ```
 curl -X 'GET' \
-  'https://dmz.kubes.healthdata.be/api/profiles?pagination[page]=1&pagination[perPage]=10&sort[field]=id&sort[order]=ASC&filter[profile_id]=prod' \
+  'https://dmz.kubes.dmz.it.com/api/profiles?pagination[page]=1&pagination[perPage]=10&sort[field]=id&sort[order]=ASC&filter[profile_id]=prod' \
   -H 'accept: */*' \
   -H 'Authorization: Bearer <JWT_TOKEN>'
 ```
@@ -167,7 +167,7 @@ curl -X 'GET' \
 
 ```
 user@VM ~ % curl -g -X 'GET' \
-  'https://dmz.kubes.healthdata.be/api/servers?pagination[page]=1&pagination[perPage]=10&sort[field]=id&sort[order]=ASC&filter[profile_id]=prod' \
+  'https://dmz.kubes.dmz.it.com/api/servers?pagination[page]=1&pagination[perPage]=10&sort[field]=id&sort[order]=ASC&filter[profile_id]=prod' \
   -H 'accept: */*' \
   -H 'Authorization: Bearer <JWT_TOKEN>' | jq .
 
@@ -176,7 +176,7 @@ user@VM ~ % curl -g -X 'GET' \
 
 ```
 user@VM ~ % curl -g -X 'GET' \
-  'https://dmz.kubes.healthdata.be/api/rules?pagination[page]=1&pagination[perPage]=10&sort[field]=id&sort[order]=ASC&filter[profile_id]=prod' \
+  'https://dmz.kubes.dmz.it.com/api/rules?pagination[page]=1&pagination[perPage]=10&sort[field]=id&sort[order]=ASC&filter[profile_id]=prod' \
   -H 'accept: */*' \
   -H 'Authorization: Bearer <JWT_TOKEN>' | jq .
 ```
@@ -184,7 +184,7 @@ user@VM ~ % curl -g -X 'GET' \
 ## To create a new rule try:
 ```
 user@VM ~ % curl -X 'POST' \
-  'https://dmz.kubes.healthdata.be/api/rules' \
+  'https://dmz.kubes.dmz.it.com/api/rules' \
   -H 'accept: application/json' \
   -H 'Authorization: Bearer <JWT_TOKEN>' \
   -H 'Content-Type: application/json' \
@@ -225,7 +225,7 @@ user@VM ~ % curl -X 'POST' \
 
 ```
 curl -X 'POST' \
-  'https://dmz.kubes.healthdata.be/api/servers' \
+  'https://dmz.kubes.dmz.it.com/api/servers' \
   -H 'accept: application/json' \
   -H 'Authorization: Bearer ' \
   -H 'Content-Type: application/json' \
@@ -274,7 +274,7 @@ curl -X 'POST' \
 
 See postman examples to export and import postman collections and checkout the API Swagger page to manage server hosts in Nginx and attach security rules for each virtual host without reloading nginx.
 
-[Click here to visit DMZ Swagger API reference guide] https://dmz.dev.kubes.healthdata.be/swagger/
+[Click here to visit DMZ Swagger API reference guide] https://dmz.dev.kubes.dmz.it.com/swagger/
 
-Note: For Sciensano DMZ Business Documentation please refer to `https://docs.healthdata.be/documentation/dc-devops-internal/dmz`
+Note: For Sciensano DMZ Business Documentation please refer to `https://docs.dmz.it.com/documentation/dc-devops-internal/dmz`
 # dmz

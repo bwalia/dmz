@@ -75,7 +75,7 @@ ingress:
     # kubernetes.io/ingress.class: traefik
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: __target_environment_ref__-apigw.kubes.healthdata.be
+    - host: __target_environment_ref__-apigw.kubes.dmz.it.com
       paths:
         - path: /
           pathType: ImplementationSpecific

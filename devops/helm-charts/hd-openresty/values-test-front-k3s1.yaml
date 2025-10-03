@@ -72,13 +72,13 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: test-front.kubes.healthdata.be
+    - host: test-front.kubes.dmz.it.com
       paths:
         - path: /
           pathType: ImplementationSpecific
           serviceName: dmz-front-svc-test
           servicePort: 80
-    - host: sandbox-apigw.kubes.healthdata.be
+    - host: sandbox-apigw.kubes.dmz.it.com
       paths:
         - path: /
           pathType: ImplementationSpecific

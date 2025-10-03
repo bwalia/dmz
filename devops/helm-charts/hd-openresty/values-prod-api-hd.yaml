@@ -20,7 +20,7 @@ app:
   redis_host: "redis-service.prod.svc.cluster.local"
   target_env: "prod"
   target_type: "api"
-  front_url: "https://frontdoor-test.dev.kubes.healthdata.be"
+  front_url: "https://frontdoor-test.dev.kubes.dmz.it.com"
   sync_data_onload: false
   bootstrap_on_start: true
   custom_lb_svc_enabled: false
@@ -95,7 +95,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: dmz.dev.kubes.healthdata.be
+    - host: dmz.dev.kubes.dmz.it.com
       paths:
         - path: /
           pathType: ImplementationSpecific

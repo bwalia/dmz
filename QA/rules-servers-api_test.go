@@ -15,7 +15,7 @@ var serverId string
 var ruleId string
 var tokenValue string
 
-const targetHost = "https://test-api.kubes.healthdata.be"
+const targetHost = "https://test-api.kubes.dmz.it.com"
 
 func TestAuthLoginAndFetchToken(t *testing.T) {
 	type authResponse struct {
@@ -144,7 +144,7 @@ func TestCreateServer(t *testing.T) {
 	url := targetHost + "/api/servers"
 	method := "POST"
 
-	payload := strings.NewReader(`{"listens":[{"listen":"80"}],"server_name":"test-api.kubes.healthdata.be","root":"/var/www/html","index":"index/html","access_log":"/logs/access.log","error_log":"/logs/error.log","locations":[],"custom_block":[]}`)
+	payload := strings.NewReader(`{"listens":[{"listen":"80"}],"server_name":"test-api.kubes.dmz.it.com","root":"/var/www/html","index":"index/html","access_log":"/logs/access.log","error_log":"/logs/error.log","locations":[],"custom_block":[]}`)
 
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, payload)
@@ -263,7 +263,7 @@ func TestGetSingleServer(t *testing.T) {
 		t.Error("Unexpected response status code", res.StatusCode)
 		return
 	}
-	if !strings.Contains(string(body), "test-api.kubes.healthdata.be") {
+	if !strings.Contains(string(body), "test-api.kubes.dmz.it.com") {
 		t.Error("Returned unexpected body")
 		return
 	}
@@ -343,7 +343,7 @@ func TestUpdateRuleWithServer(t *testing.T) {
 	url := targetHost + "/api/servers/" + serverId
 	method := "PUT"
 
-	payload := strings.NewReader(fmt.Sprintf(`{"server_name":"test-api.kubes.healthdata.be","listens":[{"listen":"81"}],"proxy_pass":"http://localhost","index":"index/html","id":"%s","match_cases":{},"error_log":"/logs/error.log","rules":"%s","locations":{},"root":"/var/www/html","custom_block":{},"access_log":"/logs/access.log","created_at":1687844569}`, serverId, ruleId))
+	payload := strings.NewReader(fmt.Sprintf(`{"server_name":"test-api.kubes.dmz.it.com","listens":[{"listen":"81"}],"proxy_pass":"http://localhost","index":"index/html","id":"%s","match_cases":{},"error_log":"/logs/error.log","rules":"%s","locations":{},"root":"/var/www/html","custom_block":{},"access_log":"/logs/access.log","created_at":1687844569}`, serverId, ruleId))
 	client := &http.Client{}
 	req, err := http.NewRequest(method, url, payload)
 	if err != nil {
@@ -375,7 +375,7 @@ func TestUpdateRuleWithServer(t *testing.T) {
 }
 
 func TestServerResponse(t *testing.T) {
-	url := "http://test-api.kubes.healthdata.be/router"
+	url := "http://test-api.kubes.dmz.it.com/router"
 
 	client := &http.Client{}
 

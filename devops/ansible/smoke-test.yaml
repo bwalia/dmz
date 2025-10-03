@@ -2,30 +2,30 @@
 - name: Run a command on the Ansible host
   hosts: [ubuntu]
   tasks:
-    - name: ping -c 3 s3.healthdata.be
+    - name: ping -c 3 s3.dmz.it.com
       ansible.builtin.command:
-        cmd: ping -c 3 s3.healthdata.be
+        cmd: ping -c 3 s3.dmz.it.com
 
-    - name: nc -v s3.healthdata.be 80
+    - name: nc -v s3.dmz.it.com 80
       ansible.builtin.command:
-        cmd: nc -v s3.healthdata.be 80
+        cmd: nc -v s3.dmz.it.com 80
 
-    - name: nc -v s3.healthdata.be 443
+    - name: nc -v s3.dmz.it.com 443
       ansible.builtin.command:
-        cmd: nc -v s3.healthdata.be 443
+        cmd: nc -v s3.dmz.it.com 443
 
-    # - name: Check http connection to hdopenresty.healthdata.be
+    # - name: Check http connection to hdopenresty.dmz.it.com
     #   ansible.builtin.command:
-    #     cmd: curl -IL http://hdopenresty.healthdata.be
+    #     cmd: curl -IL http://hdopenresty.dmz.it.com
 
-    # - name: Check https connection to s3.healthdata.be
+    # - name: Check https connection to s3.dmz.it.com
     #   ansible.builtin.command:
-    #     cmd: curl -IL http://s3.healthdata.be
+    #     cmd: curl -IL http://s3.dmz.it.com
 
-    # - name: Check https connection to hdopenresty.healthdata.be
+    # - name: Check https connection to hdopenresty.dmz.it.com
     #   ansible.builtin.command:
-    #     cmd: curl -IL https://hdopenresty.healthdata.be
+    #     cmd: curl -IL https://hdopenresty.dmz.it.com
 
-    # - name: Check https connection to s3.healthdata.be
+    # - name: Check https connection to s3.dmz.it.com
     #   ansible.builtin.command:
-    #     cmd: curl -IL https://s3.healthdata.be
+    #     cmd: curl -IL https://s3.dmz.it.com

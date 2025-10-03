@@ -48,7 +48,7 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: sandbox-app.kubes.healthdata.be
+    - host: sandbox-app.kubes.dmz.it.com
       paths:
         - path: /
           pathType: ImplementationSpecific

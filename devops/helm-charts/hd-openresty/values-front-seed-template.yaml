@@ -75,13 +75,13 @@ ingress:
     # kubernetes.io/ingress.class: traefik
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: __target_environment_ref__-frontdoor.kubes.healthdata.be
+    - host: __target_environment_ref__-frontdoor.kubes.dmz.it.com
       paths:
         - path: /
           pathType: ImplementationSpecific
           serviceName: hd-front-svc-__target_environment_ref__
           servicePort: 80
-    - host: __target_environment_ref__-front.kubes.healthdata.be
+    - host: __target_environment_ref__-front.kubes.dmz.it.com
       paths:
         - path: /
           pathType: ImplementationSpecific

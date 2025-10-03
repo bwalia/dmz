@@ -19,8 +19,8 @@
         "VITE_DEPLOYMENT_TIME": "20240821210059",
         "NGINX_CONFIG_DIR": "\/opt\/nginx",
         "JWT_SECURITY_PASSPHRASE": "HCsKpxQ4hU97V5us5TCwvLnAVBgLqNd1dP2R-4Uywg7946J3zAqT9EOA5hdWRCQn",
-        "CONTROL_PLANE_API_URL": "http:\/\/gateway.kubes.healthdata.be/\/api",
-        "FRONT_URL": "http:\/\/frontdoor-gateway.kubes.healthdata.be",
+        "CONTROL_PLANE_API_URL": "http:\/\/gateway.kubes.dmz.it.com/\/api",
+        "FRONT_URL": "http:\/\/frontdoor-gateway.kubes.dmz.it.com",
         "REDIS_HOST": "dmz-redis",
         "HOSTNAME": "localhost",
         "STACK": "Lua 5.1",
@@ -39,7 +39,7 @@
     "ip2location_path": "\/usr\/local\/openresty\/nginx\/IP2LOCATION-LITE-DB11.IPV6.BIN",
     "super_user": {
         "password": "jGl25bVBBBW96Qi9Te4V37Fnqchz\/Eu4qB9vKrRIqRg=",
-        "email": "apigw@healthdata.be",
+        "email": "admin@dmz.it.com",
         "username": "admin"
     },
     "consul": {
