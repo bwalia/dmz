@@ -20,7 +20,7 @@ app:
   redis_host: "redis-service.prod.svc.cluster.local"
   target_env: "prod"
   target_type: "front"
-  front_url: "http://frontdoor-gateway.kubes.dmz.it.com"
+  front_url: "http://frontend.dmz.it.com"
   sync_data_onload: false
   bootstrap_on_start: true
   enable_http: true
@@ -82,19 +82,19 @@ ingress:
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: frontdoor-gateway.kubes.dmz.it.com
+    - host: frontend.dmz.it.com
       paths:
         - path: /
           pathType: ImplementationSpecific
           serviceName: dmz-front-svc-prod
           servicePort: 80
-    - host: front-gateway.kubes.dmz.it.com
+    - host: front-gateway.dmz.it.com
       paths:
         - path: /
           pathType: ImplementationSpecific
           serviceName: dmz-front-svc-prod
           servicePort: 80
-    - host: sandbox-gateway.kubes.dmz.it.com
+    - host: sandbox-gateway.dmz.it.com
       paths:
         - path: /
           pathType: ImplementationSpecific
