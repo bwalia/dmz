@@ -62,7 +62,7 @@ At DP side storage mode destination is set to Disk (So the security rules are de
 
 ## Dev Rquirements
 
-1. Docker container to run DMZ we use official openresty base fat alpine image and build private image with additional configuration and save in Healthdata private Nexus repository securely.
+1. Docker container to run DMZ we use official openresty base fat alpine image and build private image with additional configuration and save in DMZ private Nexus repository securely.
 
 2. Redis container to store and manage API GW security rules and TLS certs etc. (Redis cluster makes HD API Gateway PoP a true HA environment especially at HD side)
 
