@@ -40,24 +40,24 @@ Note: The API GW Prod env is NOT Publically available & protected at layer 7 by 
 
 ## A typical implementation of HD API Gateway and the HD PoP is shown in the illustration below.HD PoP stands for Point of Presence & it acts as a frontdoor traffic manager and it is build on top of the famous Nginx Openresty Framework. The complete working illustation can help you to understand the purpose of dmz.
 
-![image](https://github.com/Sciensano-Healthdata/dmz/blob/75de798e962a22dc35ee6154fffdc89fc92a21d0/images/hd-api-gw-openresty-pop-v1.png)
+![image](https://github.com/dmz/dmz/blob/75de798e962a22dc35ee6154fffdc89fc92a21d0/images/hd-api-gw-openresty-pop-v1.png)
 
 ## A complete technical Workflow below illustrating how this entire API GW Solution works?
 
 At HD side the storage mode destination is set to Redis as REC (Redis enterprise cluster is running in HA in Kubernetes isolating business logic and the securirty rules from the application itself). At DP side storage mode destination is set to Disk (So the security rules are defined in the JSON files as one off installation step or in the Version control system such as github and then deployed via Ansible pipeline). But the solution is flexible and can be setup in push and pull environments for airgapped environments.
 
-![image](https://github.com/Sciensano-Healthdata/dmz/blob/7d7f2cef297bef114dad232ab9df83521a4434e2/images/api-gateway-cdn-workflow.drawio.png)
+![image](https://github.com/dmz/dmz/blob/7d7f2cef297bef114dad232ab9df83521a4434e2/images/api-gateway-cdn-workflow.drawio.png)
 
 ## HD Side Workflow 
 
 At HD side the storage mode destination is set to Redis as REC (Redis enterprise cluster is running in HA in Kubernetes isolating business logic and the securirty rules from the application itself)
-![image](https://github.com/Sciensano-Healthdata/dmz/blob/e1f238e54a57936d24e6b8b874e0b65488fe0ccd/images/sciensano-api-gw-dps-side.png)
+![image](https://github.com/dmz/dmz/blob/e1f238e54a57936d24e6b8b874e0b65488fe0ccd/images/sciensano-api-gw-dps-side.png)
 
 ## DP Side Workflow 
 
 At DP side storage mode destination is set to Disk (So the security rules are defined in the JSON files as one off installation step or in the Version control system such as github and then deployed via Ansible pipeline)
 
-![image](https://github.com/Sciensano-Healthdata/dmz/blob/e1f238e54a57936d24e6b8b874e0b65488fe0ccd/images/sciensano-api-gw-dps-side.png)
+![image](https://github.com/dmz/dmz/blob/e1f238e54a57936d24e6b8b874e0b65488fe0ccd/images/sciensano-api-gw-dps-side.png)
 
 
 ## Dev Rquirements
@@ -68,7 +68,7 @@ At DP side storage mode destination is set to Disk (So the security rules are de
 
 3. OPS API container (A fully comprehensive API to manage Nginx path based security, IP to Country integration to configure firewall rules based on country of the user, Open ID Connect JWT Token Auth. fully configurable for each Origin to protect data APIs)
 
-![image](https://github.com/Sciensano-Healthdata/dmz/blob/45b85d8d8588c7aa33ade9d3c4e9dc22d5e7cffd/images/hd-api-gw-hd-pop-drawio.png)
+![image](https://github.com/dmz/dmz/blob/45b85d8d8588c7aa33ade9d3c4e9dc22d5e7cffd/images/hd-api-gw-hd-pop-drawio.png)
 
 DMZ consists of three main components
 
@@ -113,7 +113,7 @@ docker compose --env-file .env.dev up -d --build
 
 At HD side set storage mode destination to Redis as REC (Redis enterprise cluster is running in HA in Kubernetes isolating business securirty rules from application)
 
-![image](https://github.com/Sciensano-Healthdata/dmz/blob/d65e89b92c23736909ab21dc8a85c279d0f90017/images/hd-pop-save-config-ha-redis-in-case-of-hd-or-disk-in-case-of-dp.png)
+![image](https://github.com/dmz/dmz/blob/d65e89b92c23736909ab21dc8a85c279d0f90017/images/hd-pop-save-config-ha-redis-in-case-of-hd-or-disk-in-case-of-dp.png)
 
 ## Dashboard API UI
 
@@ -123,7 +123,7 @@ In non production env API smoke testing can be easily done via UI and can act as
 
 `Setting up nginx virtual host via OPSAPI or Dashboard Admin UI`
 
-![image](https://github.com/Sciensano-Healthdata/dmz/blob/d65e89b92c23736909ab21dc8a85c279d0f90017/images/hd-pop-create-virtual-host.png)
+![image](https://github.com/dmz/dmz/blob/d65e89b92c23736909ab21dc8a85c279d0f90017/images/hd-pop-create-virtual-host.png)
 
 ## Usage
 
@@ -138,13 +138,13 @@ on your local system. It will automatically sync the build changes with the dock
 Example default page can be set via API or Admin dashboard (Make sure to encode HTML and images into base64 before setting up these pages)
 ```
 
-![image](https://github.com/Sciensano-Healthdata/dmz/blob/d65e89b92c23736909ab21dc8a85c279d0f90017/images/hd-pop-default-page-setup-example.png)
+![image](https://github.com/dmz/dmz/blob/d65e89b92c23736909ab21dc8a85c279d0f90017/images/hd-pop-default-page-setup-example.png)
 
 ## OPS API
 
 HD PoP API Gateway can be configured to allow and or disallow access to certain resources based on the uri path, IP or the country of the client web browser networks and or OpenID connect JWT token validation. OWASP Top 10 security firewall to come soon [DDoS mitigation, Rate limiting, Fail2Ban, TLS cert automation via LetsEncrypt or HC Vault Integration, SQL injection and XSS attack mitigation, Session hijack mitigation, CORS and HSTS response header setup, AB testing, HTTP Traffic diversion based on User language and location profiles, better error handling for backend resources ,Global Cache and SSO token validation for all origin apps and fine grained control over user roles and permissions in the token payload ]
 
-![image](https://github.com/Sciensano-Healthdata/dmz/blob/d65e89b92c23736909ab21dc8a85c279d0f90017/images/hd-pop-api-gw-rule-example-allow-api-from-belgium-only.png)
+![image](https://github.com/dmz/dmz/blob/d65e89b92c23736909ab21dc8a85c279d0f90017/images/hd-pop-api-gw-rule-example-allow-api-from-belgium-only.png)
 
 and much more...
 

@@ -83,7 +83,7 @@ ingress:
           pathType: ImplementationSpecific
           serviceName: dmz-api-svc-acc
           servicePort: 8080
-    - host: api-acc.healthdata.local
+    - host: api-acc.dmz.local
       paths:
         - path: /
           pathType: ImplementationSpecific

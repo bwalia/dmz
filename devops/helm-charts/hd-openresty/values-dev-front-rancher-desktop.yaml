@@ -21,7 +21,7 @@ app:
   redis_host: "redis-service.dev.svc.cluster.local"
   target_env: "dev"
   target_type: "front"
-  front_url: "http://front.dev.healthdata.local"
+  front_url: "http://front.dev.dmz.local"
   sync_data_onload: false
 
 secure_env_file: AgCcEAM65FDuxQ55pEv4glQRWewEuF4PodFeps3sy3y+Gbt+CB7DR9li0xzQvEyJYcKNGFhDX+hHIJ1BLB/1JfMHPiYeYbbf0wMoH1yR5W3sw58UNjit2IWjJAShevt6dtyeJ7vlQGgHXu+o8eS2Hvyw0TbyqD87N4IrWIAAgwMrogGVsUxqXtY4pZXmo0gyK5xrvmBT2E+DoEWTy6pQeXtqc9LTsh5sX/w4E841Ff3bUP9E1Y4rdTdtep1GgcLMVHXbsc79CWbz6OrGkvyCaYbV1HQaqhGkcS2E98FaMTn1R4mlWTAgcOE2UvxhTM+1+hsJAoh+RG/QrrRuOUBAiI/fqRNrhR19U+pUr1I5h2XVpPS6q+arvd1EppaxK+cQhYSpebxtpsrQj3RwfKYALC0emcom4NxpNp2q5ZO6w0Pg2ptH8YpVHH4XQS1mjKWbvNKMer1Ev3scJ74y58/kY3QdmCj2E9XNGvMM0p/sYZja7d+mf7mjZd4ClxEwszPRHBurf+BUYp0tVNCYP9abTibqIQaDygu6e03EdsoKQOL2xyD6e3ieTKSP/O/D8/cUug1cz4frNdUXAUlSQt7Yu45tM/onvNjpGkacLvQu+B5LYuMSpAFh4MDPXdr+BtSPU2Zn/UmMzsrXu1Tp1g7ZFsxPp2Yexl37rHi7fQrlExZYvNBwWkRbNank7O18mUvqLqaigMQHBSVCedJ441fndaqKIDW2dxs+qqC9fzHpxzfeqiCmqxBYOm5N8skFxA0HDwQSewKQIs3Df1Yi0vWXhukVgDHW2MDg6StcDgIxV+Ln2vbvPLPcXMy2vQrC1OFI/QYyoh1IbGDhZ+8yxfhbwInUXQLsc/isqNwL+nl+gJrjFZJA1ke+rNt4TuG+M7FmtHi2qR06E+wp5BhNTlTtIT771WzxRiH8jE7fI3CZSTMionze1qIHal6XPlVbXTio9JDQ7zLGbzJwUoT2Fzlou9L0CBFdfXxStug9Vh46D6KJsh3IHK0MOxqTeajBgrwDG9+MNbQLC3UrqYjNi5gjMpfCzg8ixvtKTyLYCr17eFqgYn8k87ISlj2pTcFmXNKLf1qfmkmPoh7WMiB6mbvFuvYgGuM2NnWD8CXSatjE5nlgn6j2XFX1qjy4l33t7qyAGFpSmrI17EoSTBYqY2atKYn0u6/tnWXvuf5cmLECN0DlMQ/3ZAjRzxTwOnIFiFkdSINez7yldFxwucJM+W0CfjEzRfr20x0YoZAzwDF3krssGcRimItfZpgECTjWthMF8FzQ9qGwDiix127Qlw/wZcq4wu4On+c=
@@ -86,13 +86,13 @@ ingress:
           pathType: ImplementationSpecific
           serviceName: hd-front-svc-dev
           servicePort: 80
-    - host: front.dev.healthdata.local
+    - host: front.dev.dmz.local
       paths:
         - path: /
           pathType: ImplementationSpecific
           serviceName: hd-front-svc-dev
           servicePort: 80
-    - host: httpbin.dev.healthdata.local
+    - host: httpbin.dev.dmz.local
       paths:
         - path: /
           pathType: ImplementationSpecific

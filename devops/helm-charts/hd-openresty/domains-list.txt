@@ -1,6 +1,6 @@
 DTAP DEFAULT DOMAINS PER git add ENV
 
-front.__target_environment_ref__.healthdata.local
+front.__target_environment_ref__.dmz.local
 __target_environment_ref__-front.kubes.dmz.it.com
 
 prod ENV

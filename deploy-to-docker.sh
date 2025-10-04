@@ -32,6 +32,7 @@ fi
 if [ -z "$3" ]
   then
     echo "No JWT token supplied default to dmz"
+    exit 1
 else 
     JWT_TOKEN_KEY="$3"
 fi

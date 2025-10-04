@@ -21,7 +21,7 @@ app:
   redis_host: "redis-service.__target_environment_ref__.svc.cluster.local"
   target_env: "__target_environment_ref__"
   target_type: "front"
-  front_url: "http://front.__target_environment_ref__.healthdata.local"
+  front_url: "http://front.__target_environment_ref__.dmz.local"
   sync_data_onload: false
 
 persistentStorage: ""
@@ -87,13 +87,13 @@ ingress:
           pathType: ImplementationSpecific
           serviceName: hd-front-svc-__target_environment_ref__
           servicePort: 80
-    - host: front.__target_environment_ref__.healthdata.local
+    - host: front.__target_environment_ref__.dmz.local
       paths:
         - path: /
           pathType: ImplementationSpecific
           serviceName: hd-front-svc-__target_environment_ref__
           servicePort: 80
-    - host: httpbin.__target_environment_ref__.healthdata.local
+    - host: httpbin.__target_environment_ref__.dmz.local
       paths:
         - path: /
           pathType: ImplementationSpecific

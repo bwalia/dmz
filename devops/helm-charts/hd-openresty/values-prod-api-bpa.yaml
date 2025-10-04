@@ -100,7 +100,7 @@ ingress:
           pathType: ImplementationSpecific
           serviceName: dmz-api-svc-prod
           servicePort: 8080
-    - host: gateway.kubes.healthdata.local
+    - host: gateway.kubes.dmz.local
       paths:
         - path: /
           pathType: ImplementationSpecific

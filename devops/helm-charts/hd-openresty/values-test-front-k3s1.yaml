@@ -84,7 +84,7 @@ ingress:
           pathType: ImplementationSpecific
           serviceName: dmz-front-svc-test
           servicePort: 80
-    - host: front-test.healthdata.local
+    - host: front-test.dmz.local
       paths:
         - path: /
           pathType: ImplementationSpecific
