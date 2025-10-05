@@ -15,7 +15,7 @@ POWERDNS_ACCOUNT_API_KEY:
 
 Example:
 ```
-POWERDNS_zone: sciensano.be
+POWERDNS_zone: workstation.co.uk
 POWERDNS_record_name: test2
 POWERDNS_record_type: A
 POWERDNS_record_value: 127.0.0.1

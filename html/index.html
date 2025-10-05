@@ -1,210 +1,304 @@
-
-<!doctype html>
-<html>
-    <head>
-    <meta charset="utf-8">
-    <!-- utf-8 works for most cases -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Forcing initial-scale shouldn't be necessary -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Use the latest (edge) version of IE rendering engine -->
-
-    <title>Sciensano - old domains - www.sciensano.be</title>
-   
-
-    <!-- CSS Reset -->
-    <style type="text/css">
-
-      /* Beware: It can remove the padding / margin and add a background color to the compose a reply window. */
-html,  body {
-	margin: 0 !important;
-	padding: 0 !important;
-	height: 100% !important;
-	width: 100% !important;
-}
-
-* {
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
-}
-
-.ExternalClass {
-	width: 100%;
-}
-
-div[style*="margin: 16px 0"] {
-	margin: 0 !important;
-}
-
-table,  td {
-	mso-table-lspace: 0pt !important;
-	mso-table-rspace: 0pt !important;
-}
-
-table {
-	border-spacing: 0 !important;
-	border-collapse: collapse !important;
-	table-layout: fixed !important;
-	margin: 0 auto !important;
-}
-table table table {
-	table-layout: auto;
-}
-/* What it does: Uses a better rendering method when resizing images in IE. */
-img {
-	-ms-interpolation-mode: bicubic;
-}
-/* What it does: Overrides styles added when Yahoo's auto-senses a link. */
-.yshortcuts a {
-	border-bottom: none !important;
-}
-/* What it does: Another work-around for iOS meddling in triggered links. */
-a[x-apple-data-detectors] {
-	color: inherit !important;
-}
-</style>
-
-    <!-- Progressive Enhancements -->
-    <style type="text/css">
-        
-        /* What it does: Hover styles for buttons */
-        .button-td,
-        .button-a {
-            transition: all 100ms ease-in;
+    <title>Welcome - DMZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .button-td:hover,
-        .button-a:hover {
-            background: #87bb67 !important;
-            border-color: #87bb67 !important;
+        body {
+            font-family: 'SUSE', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background: #ffffff;
+            min-height: 100vh;
+            color: #2c3e50;
         }
-
-        /* Media Queries */
-        @media screen and (max-width: 600px) {
-
-            .page-container {
-                width: 100% !important;
-            }
-
-            /* What it does: Forces elements to resize to the full width of their container. Useful for resizing images beyond their max-width. */
-            .fluid,
-            .fluid-centered {
-                max-width: 100% !important;
-                height: auto !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-            /* And center justify these ones. */
-            .fluid-centered {
-                margin-left: auto !important;
-                margin-right: auto !important;
-            }
-
-            /* What it does: Forces table cells into full-width rows. */
-            .stack-column,
-            .stack-column-center {
-                display: block !important;
-                width: 100% !important;
-                max-width: 100% !important;
-                direction: ltr !important;
-            }
-            /* And center justify these ones. */
-            .stack-column-center {
-                text-align: center !important;
-            }
-        
-            /* What it does: Generic utility class for centering. Useful for images, buttons, and nested tables. */
-            .center-on-narrow {
-                text-align: center !important;
-                display: block !important;
-                margin-left: auto !important;
-                margin-right: auto !important;
-                float: none !important;
-            }
-            table.center-on-narrow {
-                display: inline-block !important;
-            }
-                
+        .header {
+            background: #ffffff;
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
         }
-
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #0066cc;
+            letter-spacing: 0.5px;
+        }
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 8px 18px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: #2e7d32;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 16px;
+            font-weight: 300;
+        }
+        .description {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin: 60px 0;
+        }
+        .feature {
+            background: #fafafa;
+            padding: 32px 24px;
+            border: 1px solid #e0e0e0;
+            border-radius: 0;
+            transition: all 0.2s ease;
+        }
+        .feature:hover {
+            border-color: #0066cc;
+            box-shadow: 0 2px 8px rgba(0, 102, 204, 0.1);
+        }
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+        .feature-title {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+        .feature-desc {
+            font-size: 1.0625rem;
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+            font-weight: 300;
+        }
+        .info-section {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            padding: 32px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .info-section p {
+            font-size: 1.125rem;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .footer {
+            border-top: 1px solid #e0e0e0;
+            padding: 32px 0;
+            text-align: center;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            font-size: 1rem;
+            color: #666;
+            font-weight: 300;
+        }
+        @media (max-width: 768px) {
+            .header-content {
+                padding: 0 20px;
+                flex-direction: column;
+                gap: 16px;
+                text-align: center;
+            }
+            .main {
+                padding: 40px 20px;
+            }
+            h1 {
+                font-size: 2.25rem;
+            }
+            .subtitle {
+                font-size: 1.125rem;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
-    </head>
-    <body bgcolor="#f1f1f2" width="100%" style="margin: 0;" yahoo="yahoo">
-    <table bgcolor="#e0e0e0" cellpadding="0" cellspacing="0" border="0" height="100%" width="100%" style="border-collapse:collapse;">
-      <tr>
-        <td><center style="width: 100%;">          
-            
-            
-            <br>
-		  <table cellspacing="0" cellpadding="0" border="0" align="center" bgcolor="#ffffff" width="960" class="page-container">
-            
-            <!-- Hero Image, Flush : BEGIN -->
-            <tr>
-                <td class="full-width-image"><img src="https://www.sciensano.be/sites/webpage_header_960x315.png" width="960" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 960px; height: auto;"></td>
-              </tr>
-            <!-- Hero Image, Flush : END --> 
-            
-            <!-- 1 Column Text : BEGIN -->
-            <tr>
-                <td style="padding: 40px; padding-top: 20px; padding-bottom: 5px; text-align: left; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #58595b;"><h1 style=" text-align: left; margin:0px 0px 10px; color:#58595b; line-height:27px; font-size:24px; font-weight:normal">Welcome to HD PoP by Sciensano</h1>
-                  <p style="margin:0px">You have landed on this page because you have used a link that refers to a resource which does not exist or have been moved.
-                    Please note that these domains or page links are no longer valid. We kindly ask you to update your bookmarks and links to our current web domain - sciensano.be.</p>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">DMZ</div>
+            <div class="status-badge">
+                <span class="status-dot"></span>
+                <span>Operational</span>
+            </div>
+        </div>
+    </header>
 
-				   <p>If you have any questions, please contact us at info @ sciensano.be. 
-				   Thank you for your understanding.</p>
+    <main class="main">
+        <section class="hero">
+            <h1>Welcome to DMZ</h1>
+            <p class="subtitle">Cloud-Native Infrastructure Platform</p>
+            <p class="description">
+                DMZ is an enterprise-grade cloud-native API gateway and infrastructure platform designed 
+                for modern microservices architectures. Built on OpenResty, it combines advanced API management, 
+                security, observability, and cloud-native integrations to deliver high-performance, scalable solutions.
+            </p>
+        </section>
 
-					<p><strong><a href="https://www.sciensano.be" style="color:#69aa41;text-decoration:none" target="_blank">www.sciensano.be</a></strong></p>
-					  
-				<p><hr></p>
-				
-						  
-				<h1 style=" text-align: left; margin:0px 0px 10px; color:#58595b; line-height:27px; font-size:24px; font-weight:normal">Bienvenue chez Sciensano</h1>
-                  <p style="margin:0px">Vous êtes arrivé sur cette page car vous avez utilisé un lien qui renvoie vers une ressource qui n'existe pas ou qui a été déplacée.
-                    Veuillez noter que ces domaines ou liens de pages ne sont plus valides. Nous vous demandons de bien vouloir mettre à jour vos favoris et vos liens vers notre domaine Web actuel - sciensano.be.</p>
+        <section class="features">
+            <div class="feature">
+                <span class="feature-icon">🌐</span>
+                <div class="feature-title">Web Server</div>
+                <p class="feature-desc">High-performance nginx-based web server for serving modern applications</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📍</span>
+                <div class="feature-title">Point of Presence</div>
+                <p class="feature-desc">Distributed edge network capabilities for global content delivery</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔌</span>
+                <div class="feature-title">API Gateway</div>
+                <p class="feature-desc">Centralized API management, routing, and orchestration layer</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🛡️</span>
+                <div class="feature-title">Web Application Firewall</div>
+                <p class="feature-desc">Built-in security and threat protection for your applications</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">⚖️</span>
+                <div class="feature-title">Dynamic Load Balancing</div>
+                <p class="feature-desc">Intelligent traffic distribution across multiple backend servers</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">💾</span>
+                <div class="feature-title">Content Caching</div>
+                <p class="feature-desc">Advanced caching strategies for optimal performance and reduced latency</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔒</span>
+                <div class="feature-title">Web Security</div>
+                <p class="feature-desc">Comprehensive security measures including SSL/TLS and DDoS protection</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">⚙️</span>
+                <div class="feature-title">Rules Engine</div>
+                <p class="feature-desc">Flexible rule-based configuration for custom routing and processing logic</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔐</span>
+                <div class="feature-title">TLS Certificate Manager</div>
+                <p class="feature-desc">Automated certificate provisioning, renewal, and management for secure connections</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">☸️</span>
+                <div class="feature-title">Kubernetes Ingress Controller</div>
+                <p class="feature-desc">Native Kubernetes integration for seamless container orchestration and traffic management</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔄</span>
+                <div class="feature-title">Rate Limiting & Throttling</div>
+                <p class="feature-desc">Intelligent request rate limiting and traffic throttling to protect backend services</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔑</span>
+                <div class="feature-title">Authentication & Authorization</div>
+                <p class="feature-desc">OAuth2, JWT, API keys, and multi-factor authentication support for secure access control</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">📊</span>
+                <div class="feature-title">Observability & Metrics</div>
+                <p class="feature-desc">Real-time monitoring, logging, tracing, and metrics integration with Prometheus and Grafana</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔀</span>
+                <div class="feature-title">Service Mesh Integration</div>
+                <p class="feature-desc">Compatible with Istio, Linkerd, and Consul for advanced microservices networking</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🌊</span>
+                <div class="feature-title">WebSocket & gRPC Support</div>
+                <p class="feature-desc">Full support for modern protocols including WebSocket, HTTP/2, and gRPC</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔧</span>
+                <div class="feature-title">API Transformation</div>
+                <p class="feature-desc">Request/response transformation, versioning, and protocol translation on the fly</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🎯</span>
+                <div class="feature-title">Canary & Blue-Green Deployments</div>
+                <p class="feature-desc">Advanced deployment strategies for zero-downtime updates and A/B testing</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔌</span>
+                <div class="feature-title">Plugin Architecture</div>
+                <p class="feature-desc">Extensible plugin system with Lua scripting for custom middleware and functionality</p>
+            </div>
+        </section>
 
+        <section class="info-section">
+            <p>
+                If you're seeing this page, it means no specific content has been configured 
+                for this domain yet. Contact your system administrator to configure a server block.
+            </p>
+        </section>
+    </main>
 
-					<p>Si vous avez des questions, veuillez nous contacter à l'adresse info@sciensano.be. Merci pour votre compréhension.</p>
-
-					<p><strong><a href="https://www.sciensano.be" style="color:#69aa41;text-decoration:none" target="_blank">www.sciensano.be</a></strong></p>
-
-					  
-				<p><hr></p>
-					
-					
-				<h1 style=" text-align: left; margin:0px 0px 10px; color:#58595b; line-height:27px; font-size:24px; font-weight:normal">Welkom bij Sciensano</h1>
-                  <p style="margin:0px">U bent op deze pagina beland omdat u een link heeft gebruikt die verwijst naar een bron die niet bestaat of is verplaatst.
-                    Houd er rekening mee dat deze domeinen of paginalinks niet langer geldig zijn. Wij vragen u vriendelijk om uw bladwijzers en links naar ons huidige webdomein - sciensano.be, bij te werken.</p>
-	
-				<p>Als u vragen heeft, neem dan contact met ons op via info@sciensano.be. Bedankt voor uw begrip.</p>
-
-				<p><strong><a href="https://www.sciensano.be" style="color:#69aa41;text-decoration:none" target="_blank">www.sciensano.be</a></strong></p>
-					
-                <!-- Ending line : Begin -->  
-                <tr>
-                	<td class="full-width-image"><img src="https://www.sciensano.be/sites/webpage_footer_960px.png" width="600" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 960px; height: auto;"/></td>
-                </tr>
-                <!-- Ending line : Begin -->
-				
-				</td>
-              </tr>
-            
-             
-            
-            
-            <table align="center" width="960" class="page-container">
-				<!-- Three Even Columns Footer: BEGIN -->
-				<!-- Three Even Columns Footer : END -->
-            <tr>
-                <td style="padding: 20px 10px 25px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;"><webversion style="color:#797a7c; text-decoration:underline; font-weight: bold;"></webversion>
-
-                Sciensano<br>
-                <span class="mobile-link--footer">Rue Juliette Wytsmanstraat 14<br>1050 Brussels, Belgium</span> <br>
-                </td>
-              </tr>
-          </table>
-            
-            
-			</table></center></td>
-      </tr>
-    </table>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>DMZ • Powered by OpenResty/Nginx • Cloud-Native Infrastructure</p>
+        </div>
+    </footer>
 </body>
 </html>

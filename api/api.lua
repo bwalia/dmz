@@ -274,6 +274,7 @@ local function login(args)
 
         local payloads = Helper.GetPayloads(args)
         local password = Helper.hashPassword(payloads.password)
+
         if suEmail == payloads.email and suPassword == password then
             ngx.status = ngx.OK
             if settings.storage_type == "redis" then

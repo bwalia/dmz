@@ -57,7 +57,7 @@ ingress:
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
-  #      - nodeapp.kubes.sciensano.be
+  #      - nodeapp.kubes.workstation.co.uk
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
