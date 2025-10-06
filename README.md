@@ -127,7 +127,7 @@ In non production env API smoke testing can be easily done via UI and can act as
 
 ## Usage
 
-If you want to change anything in the react-admin to change openresty admin dashboard for maintain security rules then you need to run the 
+If you want to change anything in the react-admin to change DMZ Administrator dashboard for maintain security rules then you need to run the 
 ```
 yarn build
 ```

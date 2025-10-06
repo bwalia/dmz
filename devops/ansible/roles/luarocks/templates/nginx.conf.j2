@@ -108,7 +108,7 @@ http {
 
     {% if nginx_web_ui_enabled is defined and nginx_web_ui_enabled == "yes" %}
 
-    # Openresty Admin UI BEGIN
+    # DMZ Administrator UI BEGIN
     server {
         listen       8080;
         server_name  localhost;
@@ -206,7 +206,7 @@ http {
             content_by_lua_file /usr/local/openresty/nginx/html/api/ping.lua;
         }
     }
-    # Openresty Admin UI END
+    # DMZ Administrator UI END
     {% endif %}
 
 
