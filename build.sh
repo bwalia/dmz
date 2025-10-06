@@ -41,11 +41,11 @@ TARGET_DOCKER_COMPOSE_FILE="docker-compose.yml"
 
 if [ "$TARGET_ENV_NAME" == "dev" ]; then
     TARGET_DOCKER_COMPOSE_FILE="docker-compose.yml"
-    API_URL="http://localhost:8080/api"
+    API_URL="http://localhost:8090/api"
     FRONT_URL="http://localhost:8000"
 elif [ "$TARGET_ENV_NAME" == "syndev" ]; then
     TARGET_DOCKER_COMPOSE_FILE="docker-compose-${TARGET_ENV_NAME}.yml"
-    API_URL="http://localhost:8080/api"
+    API_URL="http://localhost:8090/api"
     FRONT_URL="http://localhost:8000"
 elif [ "$TARGET_ENV_NAME" == "syntest" ]; then
     TARGET_DOCKER_COMPOSE_FILE="docker-compose-${TARGET_ENV_NAME}.yml"

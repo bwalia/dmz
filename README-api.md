@@ -154,6 +154,6 @@ api/rules/{id}
 
 #### 4. Open the URL in browser to check the response.
 ```http
-http://localhost:8080/
+http://localhost:8090/
 ```
 <img src="https://github.com/dmz/dmz/blob/main/images/browser_response.png" alt="Browser response" width="500" height="300">

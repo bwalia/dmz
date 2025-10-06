@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -x
+set -e
 
 TARGET_ENV_FILE=".env.dev"
 

@@ -269,7 +269,9 @@ RUN wget https://dl.min.io/client/mc/release/linux-amd64/mc -O /usr/local/bin/mc
     --tries=3 --timeout=30 && \
     chmod +x /usr/local/bin/mc  
 
-# RUN mc --version - commented out due to crash on alpine
+
+EXPOSE 8080
+EXPOSE 8000
 
 # Start Consul in the background and then start OpenResty
 #CMD /usr/local/openresty/nginx/sbin/nginx -g "daemon off;"
